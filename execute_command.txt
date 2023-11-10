@@ -1,0 +1,8 @@
+1 - 8X super-resolution:
+
+XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda python3 main.py --config 'configs/ve/sr_ve.py' --mode 'eval' --workdir sr_8x
+
+
+2 - 16X super-resolution:
+
+XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda python3 main.py --config 'configs/ve/sr_ve.py' --mode 'eval' --workdir sr_16x
