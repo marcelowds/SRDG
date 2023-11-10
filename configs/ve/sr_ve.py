@@ -36,7 +36,7 @@ def get_config():
   data = config.data
   data.dataset = 'CelebAHQ'
   data.image_size = 128
-  data.upscaling = 16
+  data.upscaling = 8
 
   ## tf records quis campi 90 images sample 
   data.tfrecords_path = 'tfrecords/sample_quis.tfrecords'
