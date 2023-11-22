@@ -330,7 +330,7 @@ def evaluate(config,
     low_res = img[:,:,:,:,3:6]
     original_hr = img[:, :, :, :, 0:3]
     low = jnp.asarray(low_res)
-
+    
     st = time.time()
     label_gender = quis_gender[r]
     label_glasses = quis_glasses_1[r]
@@ -349,13 +349,9 @@ def evaluate(config,
 
     print('Elapsed time:', elapsed_time, 'seconds')
 
-
-    for i in range(batch_size):
-      index = r*batch_size+i+1
-      manipule.save_samples(inverse_scaler(low_res[:,i,:,:,:]),index,'-lr',workdir)
-      manipule.save_samples(samples[:,i,:,:,:],index,'-srdg',workdir)
-      manipule.save_samples(inverse_scaler(original_hr[:,i,:,:,:]),index,'-hr',workdir)
-
+    manipule.save_samples(inverse_scaler(low_res[:,0,:,:,:]),r+1,'-lr',workdir)
+    manipule.save_samples(samples[:,0,:,:,:],r+1,'-srdg',workdir)
+    manipule.save_samples(inverse_scaler(original_hr[:,0,:,:,:]),r+1,'-hr',workdir)
 
     print(f"Figure {r+1} saved")
 
